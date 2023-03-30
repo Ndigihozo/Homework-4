@@ -1,0 +1,38 @@
+//
+//  Game.swift
+//  Homework #4
+//
+//  Created by d.igihozo on 3/30/23.
+//
+
+import Foundation
+struct Game{
+    
+    var word: String
+    var incorrectMovesRemaining: Int
+    var guessedLetters: [Character]
+    
+    mutating func playerGuessed(letter: Character){
+        guessedLetters.append(letter)
+        if !word.contains(letter) {
+            incorrectMovesRemaining -= 1
+            
+        }
+        
+    }
+ 
+    
+    var formattedWord: String{
+        var guessedWord = ""
+        for letter in word {
+            if guessedLetters.contains(letter){
+                guessedWord += "\(letter)"
+            }
+            else{
+                guessedWord += "-"
+            }
+        }
+        return guessedWord
+    }
+    
+}
